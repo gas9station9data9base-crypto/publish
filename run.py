@@ -48,9 +48,9 @@ class OutlierCapper(BaseEstimator, TransformerMixin):
         return X_capped
 
 # تحميل نماذج التدريب
-stacking_regressor = joblib.load('./saved_models/stacking_regressor.joblib')
-stacking_classifier = joblib.load('./saved_models/stacking_classifier.joblib')
-label_encoder = joblib.load('./saved_models/label_encoder.joblib')
+stacking_regressor = joblib.load('stacking_regressor.joblib')
+stacking_classifier = joblib.load('stacking_classifier.joblib')
+label_encoder = joblib.load('label_encoder.joblib')
 
 # إعداد صفحة التطبيق لتحسين التخطيط
 st.set_page_config(
