@@ -193,7 +193,6 @@ def perform_prediction(input_data):
         ]
     ]
 
-    # توقع التصنيف
     classifier_prediction = stacking_classifier.predict(final_input_data)
     area_class = label_encoder.inverse_transform(classifier_prediction)
     final_input_data['area_class'] = area_class
