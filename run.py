@@ -215,60 +215,60 @@ if input_method == "إدخال يدوي":
         st.subheader("تفاصيل المزرعة والنشاط")
         cols = st.columns(2)
         with cols[0]:
-            activity_total_area_hectares = st.number_input(
-                'إجمالي مساحة النشاط (هكتار)',
-                min_value=0.0, step=0.1, format="%.2f",
-                help='المساحة الإجمالية للنشاط بالهكتار.'
-            )
             property_area = st.number_input(
-                'مساحة الملكية (هكتار)',
-                min_value=0.0, step=0.1, format="%.2f",
-                help='المساحة الإجمالية للملكية بالهكتار.'
+                'مساحة المزرعة (هكتار)',
+                min_value=0.0, step=0.0001, format="%.2f",
+                help='المساحة الإجمالية للمزرعة بالهكتار.'
+            )
+            activity_total_area_hectares = st.number_input(
+                'إجمالي مساحة النشاطات في المزرعة (هكتار)',
+                min_value=0.0, step=0.0001, format="%.2f",
+                help='المساحة الإجمالية للنشاطات في المزرعة بالهكتار.'
             )
             activity_count = st.number_input(
-                'عدد الأنشطة',
+                'عدد أنشطة المزرعة',
                 min_value=1, step=1, value=1,
                 help='إجمالي عدد الأنشطة في المزرعة.'
             )
             activity_unique_crop_types_count = st.number_input(
-                'عدد أنواع المحاصيل الفريدة',
+                'عدد المحاصيل المختلفة المنتجة في المزرعة',
                 min_value=0, step=1, value=1,
-                help='عدد أنواع المحاصيل الفريدة في النشاط.'
+                help=' أنواع المحاصيل المختلفة المنتجة في المزرعة.'
             )
             activity_productive_trees_count = st.number_input(
-                'عدد الأشجار المنتجة',
+                'عدد الأشجار ',
                 min_value=0, step=1, value=0,
-                help='إجمالي عدد الأشجار المنتجة في النشاط.'
+                help='إجمالي عدد الأشجار في المزرعة.'
             )
         
             activity_irrigation_type_1_0 = st.number_input(
-                'نوع الري 1.0 (عدد)',
+                'عدد نشاطات الري المحوري',
                 min_value=0, step=1, value=0,
-                help='عدد نوع الري 1.0 في النشاط.'
+                help='عدد نشاطات الري المحوري أو المعروف في حصر ب1.0.'
             )
         with cols[1]:
             activity_irrigation_type_2_0 = st.number_input(
-                'نوع الري 2.0 (عدد)',
+                'عدد نشاطات الري بالغمر',
                 min_value=0, step=1, value=0,
-                help='عدد نوع الري 2.0 في النشاط.'
+                help='عدد نشاطات الري بالغمر أو المعروف في حصر ب2.0.'
             )
             activity_irrigation_source_2_0 = st.number_input(
-                'مصدر الري 2.0 (عدد)',
+                'أعداد البئر الإرتوازي',
                 min_value=0, step=1, value=0,
                 help='عدد مصدر الري 2.0 في النشاط.'
             )
             activity_type_2_0 = st.number_input(
-                'نوع النشاط 2.0 (عدد)',
+                'عدد النشاطات المصنفة بالري المحوري',
                 min_value=0, step=1, value=0,
                 help='عدد نوع النشاط 2.0.'
             )
             activity_status_1 = st.number_input(
-                'حالة النشاط 1 (عدد)',
+                'عدد الأنشطة القائمة',
                 min_value=0, step=1, value=0,
                 help='عدد حالة النشاط 1.'
             )
             activity_protected_house_type_1_0 = st.number_input(
-                'نوع البيت المحمي 1.0 (عدد)',
+                'عدد البيوت المحمية البلاستيكية العادية',
                 min_value=0, step=1, value=0,
                 help='عدد نوع البيت المحمي 1.0 في النشاط.'
             )
@@ -281,27 +281,27 @@ if input_method == "إدخال يدوي":
             help='إجمالي عدد الآبار في المزرعة.'
         )
         well_irrigation_type_1_0 = st.number_input(
-            'نوع الري للبئر 1.0 (عدد)',
+            'عدد الآبار التي تخدم الري المحوري',
             min_value=0, step=1, value=0,
             help='عدد الآبار ذات نوع الري 1.0.'
         )
         well_possession_type_1 = st.number_input(
-            'نوع حيازة البئر 1 (عدد)',
+            'عدد الآبار المملوكة',
             min_value=0, step=1, value=0,
             help='عدد الآبار ذات نوع الحيازة 1.'
         )
         well_is_active_1 = st.number_input(
-            'البئر نشط 1 (عدد)',
+            'عدد الآبار النشطة',
             min_value=0, step=1, value=0,
             help='عدد الآبار النشطة.'
         )
         well_irrigation_source_1 = st.number_input(
-            'مصدر الري للبئر 1 (عدد)',
+            'عدد الآبار من نوع بئر عادي',
             min_value=0, step=1, value=0,
             help='عدد الآبار ذات مصدر الري 1.'
         )
         well_irrigation_source_2 = st.number_input(
-            'مصدر الري للبئر 2 (عدد)',
+            'عدد الآبار من نوع بئر ارتوازي',
             min_value=0, step=1, value=0,
             help='عدد الآبار ذات مصدر الري 2.'
         )
@@ -309,7 +309,7 @@ if input_method == "إدخال يدوي":
     with tabs[2]:
         st.subheader("تفاصيل المحصول")
         farm_main_crop_type_1_0 = st.number_input(
-            'نوع المحصول الرئيسي 1.0 (عدد)',
+            'عدد الأنشطة المنتجة للأعلاف',
             min_value=0, step=1, value=0,
             help='عدد نوع المحصول الرئيسي 1.0 في المزرعة.'
         )
