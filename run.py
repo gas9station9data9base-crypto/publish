@@ -197,6 +197,7 @@ def perform_prediction(input_data):
     classifier_prediction = stacking_classifier.predict(final_input_data)
     area_class = label_encoder.inverse_transform(classifier_prediction)
     final_input_data['area_class'] = area_class
+    st.write(final_input_data['area_class'])
 
     # توقع الانحدار
     prediction_log = stacking_regressor.predict(final_input_data)
