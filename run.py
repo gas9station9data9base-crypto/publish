@@ -192,6 +192,7 @@ def perform_prediction(input_data):
             'area_per_activity'
         ]
     ]
+    st.write(final_input_data)
 
     classifier_prediction = stacking_classifier.predict(final_input_data)
     area_class = label_encoder.inverse_transform(classifier_prediction)
