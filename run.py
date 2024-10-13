@@ -104,7 +104,7 @@ input_method = st.sidebar.radio("اختر طريقة الإدخال:", ("إدخ�
 required_columns = [
     'activity_total_area_hectares',
     'well_irrigation_type_1.0',
-    'well_count',
+    'wells_number',
     'well_possession_type_1',
     'well_is_active_1',
     'activity_irrigation_type_1.0',
@@ -125,12 +125,12 @@ required_columns = [
 # دالة لتنفيذ التوقعات
 def perform_prediction(input_data):
     # إجراء الحسابات
-    input_data['sprinklers_count'] = input_data['well_count']
-    input_data['sprinklers_count_kw'] = 25 * input_data['well_count']
+    input_data['sprinklers_count'] = input_data['wells_number']
+    input_data['sprinklers_count_kw'] = 25 * input_data['wells_number']
 
     # حساب النسب المئوية
     input_data['well_irrigation_type_1.0_percentage'] = input_data.apply(
-        lambda row: row['well_irrigation_type_1.0'] / row['well_count'] if row['well_count'] != 0 else 0,
+        lambda row: row['well_irrigation_type_1.0'] / row['wells_number'] if row['wells_number'] != 0 else 0,
         axis=1
     )
     # افتراض 'well_irrigation_type_3.0_percentage' كـ 0 إذا لم يتم توفيرها
@@ -149,7 +149,7 @@ def perform_prediction(input_data):
         input_data['activity_irrigation_type_2.0'] * input_data['activity_total_area_hectares']
     )
     input_data['well_density'] = input_data.apply(
-        lambda row: safe_divide(row['well_count'], row['activity_total_area_hectares']),
+        lambda row: safe_divide(row['wells_number'], row['activity_total_area_hectares']),
         axis=1
     )
     input_data['area_per_activity'] = input_data.apply(
@@ -168,7 +168,7 @@ def perform_prediction(input_data):
             'well_irrigation_type_1.0',
             'sprinklers_count_kw',
             'sprinklers_count',
-            'well_count',
+            'wells_number',
             'well_possession_type_1',
             'well_is_active_1',
             'activity_irrigation_type_1.0',
@@ -203,7 +203,7 @@ def perform_prediction(input_data):
     prediction_log = stacking_regressor.predict(final_input_data)
     prediction = np.expm1(prediction_log)
 
-    if int(final_input_data.iloc[0]['activity_total_area_hectares']) == 0 or int(final_input_data.iloc[0]['property_area']) == 0 or int(final_input_data.iloc[0]['activity_count']) == 0 or int(final_input_data.iloc[0]['well_count']) == 0:
+    if int(final_input_data.iloc[0]['activity_total_area_hectares']) == 0 or int(final_input_data.iloc[0]['property_area']) == 0 or int(final_input_data.iloc[0]['activity_count']) == 0 or int(final_input_data.iloc[0]['wells_number']) == 0:
         return 0, final_input_data
 
     return prediction[0], final_input_data
@@ -277,7 +277,7 @@ if input_method == "إدخال يدوي":
 
     with tabs[1]:
         st.subheader("تفاصيل الآبار")
-        well_count = st.number_input(
+        wells_number = st.number_input(
             'عدد الآبار',
             min_value=0, step=1, value=1,
             help='إجمالي عدد الآبار في المزرعة.'
@@ -325,7 +325,7 @@ if input_method == "إدخال يدوي":
                 input_data = pd.DataFrame({
                     'activity_total_area_hectares': [activity_total_area_hectares],
                     'well_irrigation_type_1.0': [well_irrigation_type_1_0],
-                    'wells_number': [well_count],
+                    'wells_number': [wells_number],
                     'well_possession_type_1': [well_possession_type_1],
                     'well_is_active_1': [well_is_active_1],
                     'activity_irrigation_type_1.0': [activity_irrigation_type_1_0],
