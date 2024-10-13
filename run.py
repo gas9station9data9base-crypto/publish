@@ -325,7 +325,7 @@ if input_method == "إدخال يدوي":
                 input_data = pd.DataFrame({
                     'activity_total_area_hectares': [activity_total_area_hectares],
                     'well_irrigation_type_1.0': [well_irrigation_type_1_0],
-                    'well_count': [well_count],
+                    'wells_number': [well_count],
                     'well_possession_type_1': [well_possession_type_1],
                     'well_is_active_1': [well_is_active_1],
                     'activity_irrigation_type_1.0': [activity_irrigation_type_1_0],
