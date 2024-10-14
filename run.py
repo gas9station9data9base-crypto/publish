@@ -55,7 +55,7 @@ label_encoder = joblib.load('label_encoder.joblib')
 # إعداد صفحة التطبيق لتحسين التخطيط
 st.set_page_config(
     page_title="تقدير الأحمال الكهربائية في المزارع",
-    page_icon="🌾",
+    page_icon="MOE_logo.png",
     layout="wide",
     initial_sidebar_state="expanded",
 )
