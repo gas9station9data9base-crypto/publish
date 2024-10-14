@@ -232,11 +232,7 @@ if input_method == "إدخال يدوي":
                 min_value=1, step=1, value=1,
                 help='إجمالي عدد الأنشطة في المزرعة.'
             )
-            activity_unique_crop_types_count = st.number_input(
-                'عدد المحاصيل المختلفة المنتجة في المزرعة',
-                min_value=0, step=1, value=1,
-                help=' أنواع المحاصيل المختلفة المنتجة في المزرعة.'
-            )
+            
             activity_productive_trees_count = st.number_input(
                 'عدد الأشجار ',
                 min_value=0, step=1, value=0,
@@ -244,23 +240,23 @@ if input_method == "إدخال يدوي":
             )
         
             activity_irrigation_type_1_0 = st.number_input(
-                'عدد نشاطات الري المحوري',
+                'عدد أنشطة الري المحوري',
                 min_value=0, step=1, value=0,
                 help='عدد نشاطات الري المحوري أو المعروف في حصر ب1.0.'
             )
         with cols[1]:
             activity_irrigation_type_2_0 = st.number_input(
-                'عدد نشاطات الري بالغمر',
+                'عدد أنشطة الري بالغمر',
                 min_value=0, step=1, value=0,
                 help='عدد نشاطات الري بالغمر أو المعروف في حصر ب2.0.'
             )
             activity_irrigation_source_2_0 = st.number_input(
-                'أعداد البئر الإرتوازي',
+                'عدد الأنشطة التي تعتمد على مصادر البئر الإرتوازي',
                 min_value=0, step=1, value=0,
                 help='عدد مصدر الري 2.0 في النشاط.'
             )
             activity_type_2_0 = st.number_input(
-                'عدد النشاطات المصنفة بالري المحوري',
+                'عدد الأنشطة المصنفة كري المحوري',
                 min_value=0, step=1, value=0,
                 help='عدد نوع النشاط 2.0.'
             )
@@ -315,6 +311,11 @@ if input_method == "إدخال يدوي":
             min_value=0, step=1, value=0,
             help='عدد نوع المحصول الرئيسي 1.0 في المزرعة.'
         )
+        activity_unique_crop_types_count = st.number_input(
+                'عدد المحاصيل المختلفة المنتجة في المزرعة',
+                min_value=0, step=1, value=1,
+                help=' أنواع المحاصيل المختلفة المنتجة في المزرعة.'
+            )
 
     # التوقع للإدخال اليدوي
     bt_cols = st.columns(5)
