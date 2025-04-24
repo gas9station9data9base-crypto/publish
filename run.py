@@ -348,7 +348,7 @@ if input_method == "إدخال يدوي":
                 prediction, final_input_data = perform_prediction(input_data)
 
                 st.success(f'إجمالي الحمل الكهربائي المقدر (كيلوواط): **{prediction:.2f}**')
-                diesel = prediction * 3.5
+                diesel = prediction * 0.35
                 st.success(f' ( 0.35 معامل الضرب المستخدم)إجمالي استهلاك الديزل المكافئ: **{diesel:.2f}**')
 
 
