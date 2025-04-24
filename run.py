@@ -1,11 +1,10 @@
 # streamlit_app.py
- 
- from sklearn.base import BaseEstimator, TransformerMixin
- import streamlit as st
- import pandas as pd
- import numpy as np
- import joblib
- from PIL import Image
+from sklearn.base import BaseEstimator, TransformerMixin
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+from PIL import Image
  
  class OutlierClipper(BaseEstimator, TransformerMixin):
      def __init__(self, lower_percentile=0.01, upper_percentile=0.99):
